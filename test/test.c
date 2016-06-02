@@ -47,3 +47,22 @@ CTEST(equation_suite, one_root_test)
     ASSERT_DBL_NEAR(expected_x1, x1);
     ASSERT_DBL_NEAR(expected_x2, x2);
 }
+
+CTEST(equation_suite, zero_a_test)
+{
+    // Given
+    const double a = 0;
+    const double b = 3;
+    const double c = 2;
+
+    // When
+    double x1;
+    double x2;
+    int count;
+    roots(a, b, c, &x1, &x2, &count);
+
+    // Then
+    const int expected_count = 0;
+
+    ASSERT_EQUAL(expected_count, count);
+}
